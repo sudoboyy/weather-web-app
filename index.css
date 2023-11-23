@@ -1,0 +1,214 @@
+body {
+	background-color: gold;
+}
+
+#physical_location {
+	width: 80%;
+}
+
+/* used for horizontal centering */
+.container_horizontal {
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+/* used for vertical centering in page */
+.container_vertical {
+	display: flex;
+	min-height: 100vh; /* ensures the container used for vertical centering is always the size of the device*/
+	align-items: center;
+}
+
+/* used for both vertical (in page) and horizontal centering */
+.container {
+	display: flex;
+	justify-content: center;
+	min-height: 100vh; /* ensures the container used for vertical centering is always the size of the device*/
+	align-items: center;
+}
+
+
+/* for large screens; if screen_width >= 800 pixels */
+
+#nav_bar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  /* flex-direction is row by default */
+  background-color: rgba(183,0,0,1);
+  overflow: hidden; 
+}
+
+#selection_bar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  /* flex-direction is row by default */
+  background-color: rgba(183,0,0,1);
+  overflow: hidden; 
+}
+
+/* for medium sized screens; if 800 pixels >= screen_width > 500 pixels */
+@media all and (max-width: 800px) {
+	#nav_bar {
+		justify-content: space-around;
+		/* evently distribute empty space */
+	}
+}
+
+@media all and (max-width: 800px) {
+	#selection_bar {
+		justify-content: space-around;
+		/* evently distribute empty space */
+	}
+}
+
+
+/* for small sized screens; if screen_width <= 500 pixels  pixels */
+@media all and (max-width: 500px) {
+	#nav_bar {
+		flex-direction: column;
+		/* we need flex-direction: column as small devices need the nav_bar's children vertically alligned */
+	}
+}
+
+@media all and (max-width: 500px) {
+	#selection_bar {
+		flex-direction: column;
+		/* we need flex-direction: column as small devices need the nav_bar's children vertically alligned */
+	}
+}
+
+#nav_bar li {
+    flex: 0 1 auto;
+    text-align: center;
+  }
+
+ #selection_bar li {
+ 	flex: 1 1 auto;
+ 	text-align: center;
+ 	display: block;
+	padding: 1vmax; /* FIXME trying 1 vmax for now, if it isn't good, will go back to 12px/other units */
+	color: rgba(255,255,0,1);
+	background-color: rgba(183,0,0,1);
+	text-decoration: none;
+	transition: background-color 0.75s;
+	-webkit-transition: background-color 0.75s;
+	font-family: 'IBM Plex Sans', Times New Roman, Georgia, sans-serif;
+ }
+
+ #selection_bar li:hover {
+	background-color: rgba(0,0,150,1);
+	transition: background-color 0s;
+	-webkit-transition: background-color 0s;
+}
+
+/* Last 2 childs of the nav bar (dark mode + dark mode label) MUST be alligned right */
+#nav_bar li:last-child {
+ 	text-align: right;
+	padding: .5em;
+    flex: 0 1 auto;
+  }
+
+#nav_bar li:nth-last-child(2) {
+	text-align: right;
+	padding: .5em;
+    flex: 1 1 auto;
+}
+
+#nav_bar li a /* all <a> nested inside <li> */ {
+	display: block;
+	padding: 1vmax; /* FIXME trying 1 vmax for now, if it isn't good, will go back to 12px/other units */
+	color: rgba(255,255,0,1);
+	background-color: rgba(183,0,0,1);
+	text-decoration: none;
+	transition: background-color 0.75s;
+	-webkit-transition: background-color 0.75s;
+	font-family: 'IBM Plex Sans', Times New Roman, Georgia, sans-serif;
+}
+
+#nav_bar li a:hover {
+	background-color: rgba(0,0,150,1);
+	transition: background-color 0s;
+	-webkit-transition: background-color 0s;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 32px;
+}
+
+/* Completely hides default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/*Slider part of design */
+.slider_dark_mode {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(204, 204, 204, 1);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+/*This is the circular "thumb" of the slider */
+.slider_dark_mode:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 3px;
+  background-color: rgba(0, 0, 0, 1);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+/* CSS for the slider if and only if Input is checked (i.e. dark mode is selected) */
+input:checked + .slider_dark_mode {
+  background-color: rgba(255, 255, 0, 1);
+}
+
+/* CSS for the slider if and only if Input is in focus (i.e. dark mode is selected) */
+input:focus + .slider_dark_mode {
+  box-shadow: 0 0 5px rgba(255, 255, 0, 1);
+}
+
+/* CSS for the slider "thumb" if and only if Input is in focus (i.e. dark mode is selected) */
+input:checked + .slider_dark_mode:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* CSS for the round dark mode slider */
+.slider_dark_mode.round {
+  border-radius: 34px;
+}
+
+/* CSS for the round dark mode slider thumb */
+.slider_dark_mode.round:before {
+  border-radius: 50%;
+}
+
+#dark_mode_label {
+	color: rgba(255,255,0,1);
+	font-family: 'IBM Plex Sans', Times New Roman, Georgia, sans-serif;
+}

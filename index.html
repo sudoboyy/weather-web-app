@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta charset="UTF-8">
+		<meta name="author" content="Shardul Shah">
+		<meta name="keywords" content="Weather application, weather, forecast, more to be added">
+		<meta name="description" content="Weather App is a free application to inform you of the latest weather forecast across the world.">
+		<meta name="application-name" content="Title of App">
+
+		<title> 
+		Weather 
+		</title>
+
+
+		<link rel="stylesheet" href="index.css" type="text/css">
+
+		<!--To allow the use of JQuery in Web App -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js">
+		</script>
+		<script type='text/javascript' src='scripts/config.js'></script>
+		<script type="text/javascript" src="scripts/retrieveWeather.js" defer>
+		</script>
+		<!--<script type="text/javascript" src="scripts/PromiseTest.js" defer>
+		</script>-->
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTWMOEVXf6COc879LAkU8miQchsR-GZJE&libraries=places&callback=activatePlacesSearch" defer>
+		</script>
+		<!-- hide the above key and make the script initialization in JavaScript later FIXME -->
+	</head>
+
+	<body>
+		<!-- Using this nav bar for now, might change later depending on Website style -->
+		<nav>
+			<ul id="nav_bar">
+				<li><a href="#contact">Contact</a></li>
+	  			<li><a href="#about">About</a></li>
+	 			<li><a href="#social_media">Social Media</a></li>
+	 			<li><a href="#research">Research & Science</a></li>
+	 			<li id="dark_mode_label">Enable Dark Mode</li>
+	 			<li>
+	 				<label class="switch">
+ 						<input type="checkbox" onclick="toggleDarkMode()"> <!-- Implement toggleDarkMode() function later -->
+  							<span class="slider_dark_mode round"> </span>
+					</label>
+				</li>
+			</ul>
+		</nav>
+			<div>
+				<p>
+				asjdoijsdioajsiod
+				</p>
+				<p>
+				asjdoijsdioajsiod
+				</p>
+				<p>
+				asjdoijsdioajsiod
+				</p>
+			</div>
+
+		<div>
+			<ul id="selection_bar">
+				<li> Now </li>
+				<li> Today </li>
+				<li> Tomorrow </li>
+				<li> Weekly Overview </li> 
+				<li> Weekend </li>
+				<li> Hourly </li>
+				<li> 5 Day Detailed </li>
+				<li> Historical </li>
+			</ul>
+		</div>
+
+		<div id="weather_info">
+		<h1 class="container_horizontal"> City, Country </h2>
+		<h3> ALERTS: </h3>
+		</div>
+
+		<div class="container_horizontal">
+			<p id="test_paragraph"> 
+			Test 
+			</p>
+			<div style="width: 100%;">
+			</div>
+			<p id="testp2">
+			Test 2
+			</p>
+			<div style="width: 100%;">
+			</div>
+			<p id="testp3">
+			Test 3
+			</p>
+			<div style="width: 100%;">
+			</div>
+
+			<label for="physical_location">Enter Location Here: </label>
+			<input type="text" id="physical_location" value="Edmonton, Canada" name="physical_location">
+			<button onclick="retrieveAndStoreJSONData()"> retrieveData </button>
+			<button onclick="test()"> Test </button>
+		</div>
+	</body>
+</html>
